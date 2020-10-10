@@ -3,7 +3,7 @@
 ##############    CREATED LESHIY_ODESSA   ##################
 ##############    Improved by SEAN SCARFO  ##################
 # Specify your domain or subdomain.
-:global "dns-domain" "myhome.qc.to"
+:global "dns-domain" "woot.qc.to"
 
 # Define IP checker website variable.  Any website that returns only the ip address in text format. examples listed
 #https://www.trackip.net/ip/
@@ -19,13 +19,13 @@
 
 # Specify the "Direct URL", which is https://freedns.afraid.org/dynamic/
 # In front of the sign "?" put a backslash "\".
-:global "direct-url" "https://freedns.afraid.org/dynamic/update.php\?ZDhoRDVwOGplOUZFMWNLN3RyRzRpbTFjOjE4MTk1MTM5"
+:global "direct-url" "https://freedns.afraid.org/dynamic/update.php\?ZDhoRDVwOGplOUZFMWNzRpbTFjOjE4MTk1MTM5"
 
 # Specify the URL API "ASCII"
 # Log in under your account and open the page https://freedns.afraid.org/api/
 # Then copy the URL of your site - Available API Interfaces : ASCII (!!! NOT XML !!!)
 # ATTENTION!!!! Before the question mark, put a backslash "\".
-:global "api-url" "https://freedns.afraid.org/api/\?action=getdyndns&v=2&sha=142c0fbd898059583796ed2646f1bbfa12016cc1"
+:global "api-url" "https://freedns.afraid.org/api/\?action=getdyndns&v=2&sha=142c0fbd96ed2646f1bbfa12016cc1"
 
 
 
