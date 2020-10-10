@@ -3,7 +3,7 @@
 ##############    CREATED LESHIY_ODESSA   ##################
 ##############    Improved by SEAN SCARFO  ##################
 # Specify your domain or subdomain.
-:global "dns-domain" "woot.hello.to"
+:global "dns-domain" "myhome.qc.to"
 
 # Define IP checker website variable.  Any website that returns only the ip address in text format. examples listed
 #https://www.trackip.net/ip/
@@ -19,13 +19,15 @@
 
 # Specify the "Direct URL", which is https://freedns.afraid.org/dynamic/
 # In front of the sign "?" put a backslash "\".
-:global "direct-url" "https://freedns.afraid.org/dynamic/update.php\?ZDhoRDVwzRpbTFjOjE2NjQ4NTQ4"
+:global "direct-url" "https://freedns.afraid.org/dynamic/update.php\?ZDhoRDVwOGplOUZFMWNLN3RyRzRpbTFjOjE4MTk1MTM5"
 
 # Specify the URL API "ASCII"
 # Log in under your account and open the page https://freedns.afraid.org/api/
 # Then copy the URL of your site - Available API Interfaces : ASCII (!!! NOT XML !!!)
 # ATTENTION!!!! Before the question mark, put a backslash "\".
-:global "api-url" "https://freedns.afraid.org/api/\?action=getdyndns&v=2&sha=142c0fbd898046f1bbfa12016cc1"
+:global "api-url" "https://freedns.afraid.org/api/\?action=getdyndns&v=2&sha=142c0fbd898059583796ed2646f1bbfa12016cc1"
+
+
 
 
        
@@ -33,8 +35,9 @@
 :global "current-ip"
 :global "dns-domain-ip"
 :if ([:len $"current-ip"] <7) do={
-    :log error ("current-ip variable has no value, setting it to 1.2.3.4");
+    :log error ("current-ip variable has no value, usually due to a reboot, setting it to 1.2.3.4");
     :global "current-ip" 1.2.3.4;
+    :log error ("current-ip variable has been set. Waiting till next run to continue script");
 } else={
     :log warning ("current IP varaible exists and has a value")
 #pause for 1 seconds
@@ -76,8 +79,8 @@
 # Split the file
     :local "result" [/file get freedns.txt contents]
     :local "startloc" ([:find $result $"dns-domain"] + [:len $"dns-domain"] + 1)
-    :local "endloc" ([:find $"result" "https" [:find $result $"dns-domain"]] -1)
-    :global "dns-domain-ip" [:pick $"result" $"startloc" $"endloc"]
+    :local "endloc" ([:find $result "https" [:find $result $"dns-domain"]] -1)
+    :global "dns-domain-ip" [:pick $result $startloc $endloc]
 #pause for 1 seconds
 :delay 1
 
